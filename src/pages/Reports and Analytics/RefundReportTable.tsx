@@ -163,7 +163,7 @@ const RefundReportTable = () => {
              </div>
             </section>
 
-            <section className="p-3 border border-s-stone-500 mt-6 rounded-lg">
+      <section className="p-3 border border-s-stone-500 mt-6 rounded-lg">
        <div className="flex justify-between">
          <span className="inline-block">Refund Requests</span>
          <div className="grid grid-cols-3">
@@ -224,7 +224,7 @@ const RefundReportTable = () => {
                       ? "text-red-700"
                       : "text-black"
                   }`}>
-           <div className={`p-2 rounded-lg w-max ${
+           <div className={`p-2 rounded-lg w-17 text-center text-[10px] ${
             data.status === "Pending" 
             ? "bg-amber-200"
             : data.status === "Completed"

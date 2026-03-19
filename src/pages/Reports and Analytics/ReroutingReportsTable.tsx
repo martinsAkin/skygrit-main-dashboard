@@ -198,7 +198,7 @@ const ReroutingReportsTable = () => {
                       ? "text-yellow-600" 
                       : "text-black"
                   }`}>
-           <div className={`p-2 rounded-lg w-max ${
+           <div className={`p-2 rounded-lg w-17 text-center text-[10px] ${
             data.type === "Downgrade" 
             ? "bg-amber-200"
             : data.type === "Upgrade"
@@ -272,12 +272,12 @@ export const AnalysisCard = ({title, items}: AnalysisCardProps) => {
        {items.map((item, index) => (
         <div 
          key={index}
-         className="flex items-center justify-between border-b last:border-b-0 pb-3 last:pb-0"
+         className="flex items-center justify-between border-b border-gray-400 last:border-b-0 pb-3 last:pb-0"
         >
-          <span className="text-sm text-gray-500">
+          <span className="text-sm font-medium text-gray-500">
            {item.label}
           </span>
-          <span className={`text-sm font-medium ${determineColor(item.valueColor)}`}>
+          <span className={`text-sm font-bold ${determineColor(item.valueColor)}`}>
             {item.value}
           </span>
         </div>

@@ -172,6 +172,78 @@ export interface PolicyRefundMetric {
  ticketSales: string[];
 }
 
+export type SubCategory = {
+  id: number;
+  name: string;
+};
+
+export type Category = {
+  id: number;
+  name: string;
+  value: string;
+  subCategories: SubCategory[];
+};
+
+export const Categories: Category[] = [
+ {
+  id: 1,
+  name: "Ticket sales(booking source)",
+  value: "ticketSales",
+  subCategories: [
+    { id: 110, name: "Direct sale from Airline" },
+    { id: 111, name: "Indirect sales (OTAs, agencies)" },
+  ]
+ },
+ {
+  id: 2,
+  name: "Refund Ticket Type",
+  value: "refundTicketType",
+  subCategories: [
+    { id: 121, name: "Refundable" },
+    { id: 122, name: "Non-Refundable" },
+  ]
+ },
+ {
+  id: 3,
+  name: "Trip",
+  value: "tripType",
+  subCategories: [
+    { id: 131, name: "One-Way" },
+    { id: 132, name: "Round-Trip" },
+    { id: 133, name: "Multi-City" },
+
+  ]
+ },
+ {
+  id: 4,
+  name: "Passenger Type",
+  value: "passengerType",
+  subCategories: [
+    { id: 141, name: "Adult" },
+    { id: 142, name: "Children" },
+    { id: 143, name: "Infant" },
+
+  ]
+ },
+ {
+  id: 5,
+  name: "Waiver",
+  value: "waiver",
+  subCategories: [
+    { id: 150, name: "Waiver" },
+  ]
+ },
+ {
+  id: 6,
+  name: "Ticket Type",
+  value: "ticketType",
+  subCategories: [
+    { id: 151, name: "Group" },
+    { id: 152, name: "Individual" },
+  ]
+ },
+];
+
 export interface EditableRefundMetric {
   policyId: string;           
   ticketClass: string;        

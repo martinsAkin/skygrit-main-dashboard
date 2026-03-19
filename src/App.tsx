@@ -49,9 +49,9 @@ function App() {
      <Route
       path="/policy-management"
       element={
-       <ProtectedRoute>
+      //  <ProtectedRoute>
         <PolicyPage />
-       </ProtectedRoute>
+      //  </ProtectedRoute>
       }
      />
 
@@ -74,9 +74,9 @@ function App() {
      />
 
      <Route path="/reports" element={
-      <ProtectedRoute>
+      // <ProtectedRoute>
         <ReportsAnalytics />
-      </ProtectedRoute>
+      // </ProtectedRoute>
      } 
       />
 

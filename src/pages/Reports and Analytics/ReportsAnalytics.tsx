@@ -8,6 +8,10 @@ import { FilterOnly } from "../../components/molecules/FilterAndSearch";
 import DateRangePicker from "../../components/molecules/DateRangePicker";
 import RefundReportTable from "./RefundReportTable";
 import ReroutingReportsTable from "./ReroutingReportsTable";
+import SettlementsReportsTable from "./SettlementsReportsTable";
+import DisputesReportsTable from "./DisputesReportsTable";
+import CommunicationsReportTable from "./CommunicationsReportTable";
+import ComplianceReports from "./ComplianceReports";
 
 export const ReportsAnalytics = () => {
   const [activeTab, setActiveTab] = useState<ReportCategory>("Overview");
@@ -69,6 +73,10 @@ export const ReportsAnalytics = () => {
         {activeTab === "Cancellations" && <CancellationReportsTable/>}
         {activeTab === "Refund" && <RefundReportTable/>}
         {activeTab === "Rerouting" && <ReroutingReportsTable/>}
+        {activeTab === "Settlements" && <SettlementsReportsTable/>}
+        {activeTab === "Disputes" && <DisputesReportsTable/>}
+        {activeTab === "Communication" && <CommunicationsReportTable/>}
+        {activeTab === "Compliance" && <ComplianceReports/>}
       </section>
     </div>
   );

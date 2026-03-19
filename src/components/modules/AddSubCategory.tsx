@@ -1,36 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import ModulesBtnSet from "../molecules/ModulesBtnSet";
-import type { ModulesProps } from "../../interface";
+import type { Category, ModulesProps } from "../../interface";
 import { addSubCategory } from "../../api/policyManagementService";
 import { useCategoryContext } from "../../hooks/CategoryContext";
-
-export const Categories = [
- {
-  category: "Ticket sales(booking source)",
-  value: "ticketSales",
- },
- {
-  category: "Refund Ticket Type",
-  value: "refundTicketType",
- },
- {
-  category: "Trip",
-  value: "tripType",
- },
- {
-  category: "Passenger Type",
-  value: "passengerType",
- },
- {
-  category: "Waiver",
-  value: "waiver",
- },
- {
-  category: "Ticket Type",
-  value: "ticketType",
- },
-];
+import MultiSelectDropdown from "../molecules/MultiSelectDropdown";
+import { Categories } from "../../interface";
 
 
 const AddSubCategory = ({
@@ -43,20 +18,22 @@ const AddSubCategory = ({
   name: "",
  });
 
- const handleInputChange = (
-  e: React.ChangeEvent<
-   HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-  >,
- ) => {
-  const { name, value } = e.target;
-  setFormData((prev) => ({ ...prev, [name]: value }));
- };
+ const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+
+//  const handleInputChange = (
+//   e: React.ChangeEvent<
+//    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+//   >,
+//  ) => {
+//   const { name, value } = e.target;
+//   setFormData((prev) => ({ ...prev, [name]: value }));
+//  };
 
  const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   
   if (!formData.name || !formData.category) {
-   alert("Empty form, kindly fill out the form");
+   alert("Empty Selection, kindly select the required fields!");
    return;
   }
 
@@ -71,15 +48,12 @@ const AddSubCategory = ({
    return;
   }
 
-  // const backendValue = formData.name.trim().replace(/\s+/g, "").toUpperCase();
 
   try {
    await addSubCategory({
     category: formData.category,
     name: formData.name,
-    // value: backendValue,
    });
-  //  onNewSubAdded(formData.category, formData.name);
    alert("Successful!");
    onCancel();
    onSuccess();
@@ -88,6 +62,8 @@ const AddSubCategory = ({
    console.error("error:", e);
   }
  };
+
+//  const fetchsubcategorybycategory = 
 
  return (
   <div className="fixed inset-0 flex justify-center items-center bg-black/50 backdrop-blur-xl">
@@ -114,13 +90,25 @@ const AddSubCategory = ({
          id="category"
          name="category"
          value={formData.category}
-         onChange={handleInputChange}
+         onChange={(e) => {
+            const value = e.target.value;
+            setFormData(prev => ({
+              ...prev,
+              category: value,
+            }));
+            const category = Categories.find(
+              c => c.id === Number(value)
+            );
+            setSelectedCategory(category || null);
+            console.log(selectedCategory);
+          }}
+
          className="w-full h-[52px] border rounded-[8px] px-3 cursor-pointer"
         >
          <option value="">--Select Category--</option>
          {Categories.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-           {opt.category}
+          <option key={opt.id} value={opt.id}>
+           {opt.name}
           </option>
          ))}
         </select>
@@ -129,16 +117,11 @@ const AddSubCategory = ({
        <label htmlFor="subCategory" className="text-[16px] font-medium">
         Sub Category Name
        </label>
-       <input
-        id="subCategory"
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleInputChange}
-        required
-        placeholder="Enter Sub Category Name"
-        className="px-[16px] py-[12px] border rounded-[4px]"
-       />
+       {selectedCategory && (
+        <MultiSelectDropdown
+          options={selectedCategory.subCategories}
+        />
+      )}
        <p className="text-[12px] text-[#6B6F80]">
         This will be added to the selected category
        </p>

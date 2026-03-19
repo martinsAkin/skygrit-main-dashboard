@@ -26,7 +26,7 @@ import {
 import AddSubCategory from "../../../components/modules/AddSubCategory";
 import AddTickets from "../../../components/modules/AddTickets";
 import { CategoryContext } from "../../../hooks/CategoryContext";
-import { Categories } from "../../../components/modules/AddSubCategory";
+import { Categories } from "../../../interface";
 
 export const SearchPolicy = ({
  selectedFlightType,
@@ -297,7 +297,7 @@ export default function TicketTable() {
     // Group categories using a consistent backend key
     const grouped = categories.reduce((acc, item) => {
       // readable label for category UI
-      const categoryName = Categories.find((c) => c.value === item.category)?.category ?? item.category;
+      const categoryName = Categories.find((c) => c.value === item.name)?.name ?? item.name;
     
       // backend key for checkbox logic
       const backendKey = item.name.trim().replace(/\s+/g, "").toUpperCase();
@@ -479,7 +479,7 @@ export default function TicketTable() {
 
     subCategories.map(({ value, label }, i) => {
       // Map friendly UI category to backend field
-      const categoryKey = Categories.find(c => c.category === categoryLabel)?.value;
+      const categoryKey = Categories.find(c => c.name === categoryLabel)?.value;
 
       return (
         <tr key={categoryLabel + "-" + value}>

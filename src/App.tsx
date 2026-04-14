@@ -20,6 +20,8 @@ import TemplateDetails from "./pages/Alerts and Notifications/components/Templat
 import CreateTrigger from "./pages/Alerts and Notifications/components/CreateTrigger";
 import ChannelSettings from "./pages/Alerts and Notifications/components/ChannelSettings";
 import { ReportsAnalytics } from "./pages/Reports and Analytics/ReportsAnalytics";
+import ClientDashboard from "./pages/Client Management/ClientDashboard";
+import EditClientDetails from "./pages/Client Management/components/EditClientDetails";
 
 function App() {
  const location = useLocation();
@@ -37,91 +39,29 @@ function App() {
     {shouldHideHeadbar && <Headbar />}
 
     <Routes>
-     <Route
-      path="/dashboard"
-      element={
-       <ProtectedRoute>
-        <Dashboard />
-       </ProtectedRoute>
-      }
-     />
+      <Route path="/" element={<Login />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<Dashboard />}/>
+        <Route path="/policy-management" element={<PolicyPage />}/>
+        <Route path="/policy-management" element={<ClientDashboard />}/>
+        <Route path="/requests/dashboard" element={<Request />}/>
+        <Route path="/details/:id" element={<RequestReview />}/>
+        
+        <Route path="/user-management" element={<UserManagement />}/>
+        <Route path="/role-management" element={<ManageRoles />}/>
+        <Route path="/create-policy" element={<CreatePolicy />} />
+        <Route path="/create-trigger" element={<CreateTrigger />} />
+        <Route path="/create-template" element={<CreateTemplate />} />
+        <Route path="/upgrade-setup" element={<UpgradeSetup />} />
+        <Route path="/audit" element={<AuditTrail />}/>
+        <Route path="/notifications" element={<AlertsAndNotifications />}/>
+        <Route path="/channelsetting/:id" element={<ChannelSettings />} />
+        <Route path="/templates/:id" element={<TemplateDetails version="2.0" />} />
+      </Route>
 
-     <Route
-      path="/policy-management"
-      element={
-      //  <ProtectedRoute>
-        <PolicyPage />
-      //  </ProtectedRoute>
-      }
-     />
-
-     <Route
-      path="/requests/dashboard"
-      element={
-       <ProtectedRoute>
-        <Request />
-       </ProtectedRoute>
-      }
-     />
-
-     <Route
-      path="/details/:id"
-      element={
-       <ProtectedRoute>
-        <RequestReview />
-       </ProtectedRoute>
-      }
-     />
-
-     <Route path="/reports" element={
-      // <ProtectedRoute>
-        <ReportsAnalytics />
-      // </ProtectedRoute>
-     } 
-      />
-
-     <Route
-      path="/user-management"
-      element={
-       <ProtectedRoute>
-        <UserManagement />
-       </ProtectedRoute>
-      }
-     />
-
-     <Route
-      path="/role-management"
-      element={
-       <ProtectedRoute>
-        <ManageRoles />
-       </ProtectedRoute>
-      }
-     />
-
-     <Route path="/create-policy" element={<CreatePolicy />} />
-     <Route path="/create-trigger" element={<CreateTrigger />} />
-     <Route path="/create-template" element={<CreateTemplate />} />
-     <Route path="/upgrade-setup" element={<UpgradeSetup />} />
-
-     <Route
-      path="/audit"
-      element={
-       <ProtectedRoute>
-        <AuditTrail />
-       </ProtectedRoute>
-      }
-     />
-
-     <Route path="/" element={<Login />} />
-     <Route path="/notifications" element={
-      <ProtectedRoute>
-        <AlertsAndNotifications />
-      </ProtectedRoute>
-     } 
-      />
-     <Route path="/channelsetting/:id" element={<ChannelSettings />} />
-
-     <Route path="/templates/:id" element={<TemplateDetails version="2.0" />} />
+        <Route path="/client-management" element={<ClientDashboard />} />
+        <Route path="/edit-client/:id" element={<EditClientDetails />} />
+        <Route path="/reports" element={<ReportsAnalytics />}/>
     </Routes>
    </main>
   </div>

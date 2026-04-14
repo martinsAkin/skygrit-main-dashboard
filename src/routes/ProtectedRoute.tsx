@@ -1,17 +1,17 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Cookies from "js-cookie";
-import type { JSX } from "react";
 
-interface ProtectedRouteProps {
- children: JSX.Element;
-}
+// interface ProtectedRouteProps {
+//  children?: JSX.Element;
+// }
 
-export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+export const ProtectedRoute = () => {
  const token = Cookies.get("token");
 
  if (!token) {
   return <Navigate to="/" replace />;
  }
 
- return children;
+ // return children;
+ return <Outlet />
 };

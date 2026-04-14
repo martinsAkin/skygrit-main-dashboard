@@ -1,0 +1,112 @@
+[
+  {
+   "id": 1,
+   "clientId": 10001,
+   "clientName": "Wakanow",
+   "internalAcc": "WKN12345",
+   "email": "michelle.rivera@example.com",
+   "type": "Indirect Sales",
+   "category": "-",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  },
+  {
+    "id": 2,
+   "clientId": 10002,
+   "clientName": "Travelport",
+   "internalAcc": "TVL12345",
+   "email": "michael.mitch@example.com",
+   "type": "Indirect Sales",
+   "category": "-",
+   "lastUpdated": "2026-01-10",
+   "status": "Inactive"
+  },
+  {
+    "id": 3,
+   "clientId": 10003,
+   "clientName": "Sabre",
+   "internalAcc": "SAB12345",
+   "email": "kenzi.lawson@example.com",
+   "type": "Indirect Sales",
+   "category": "-",
+   "lastUpdated": "2026-01-10",
+   "status": "Inactive"
+  },
+  {
+    "id": 4,
+   "clientId": 10004,
+   "clientName": "NNPC",
+   "internalAcc": "NNP12345",
+   "email": "debra.hot@example.com",
+   "type": "Corporate",
+   "category": "-",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  },
+  {
+    "id": 5,
+   "clientId": 10005,
+   "clientName": "Shell",
+   "internalAcc": "SHL12345",
+   "email": "georgie.derby@example.com",
+   "type": "Corporate",
+   "category": "-",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  },
+  {
+    "id": 6,
+   "clientId": 10006,
+   "clientName": "Chevron",
+   "internalAcc": "CHE12345",
+   "email": "georgie.derby@example.com",
+   "type": "Corporate",
+   "category": "-",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  },
+  {
+    "id": 7,
+   "clientId": 10007,
+   "clientName": "Jason Njoku",
+   "internalAcc": "-",
+   "email": "georgie.derby@example.com",
+   "type": "Non-Corporate",
+   "category": "Regular",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  },
+  {
+    "id": 8,
+   "clientId": 10008,
+   "clientName": "Joy Afane",
+   "internalAcc": "-",
+   "email": "georgie.derby@example.com",
+   "type": "Non-Corporate",
+   "category": "Discount",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  },
+  {
+    "id": 9,
+   "clientId": 10009,
+   "clientName": "June Infra",
+   "internalAcc": "JUN12345",
+   "email": "georgie.derby@example.com",
+   "type": "Corporate",
+   "category": "-",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  },
+  {
+    "id": 10,
+   "clientId": 10010,
+   "clientName": "Kevin Hart",
+   "internalAcc": "-",
+   "email": "georgie.derby@example.com",
+   "type": "Non-Corporate",
+   "category": "Group",
+   "lastUpdated": "2026-01-10",
+   "status": "Active"
+  }
+ ]

@@ -239,7 +239,7 @@ const CommunicationsReportTable = () => {
        <section className="p-3 border border-s-stone-500 mt-6 rounded-lg">
         <span className="inline-block text-left font-bold mb-1.5">Delivery Performance by Category</span>
 
-        <table className="w-full border-collapse border border-gray-200 mb-6 text-sm rounded-2xl">
+        <table className="tableheadingStyle">
          <thead className="bg-gray-100">
             <tr>
               {tableHeaders.map((field, index) => (
@@ -255,19 +255,19 @@ const CommunicationsReportTable = () => {
          <tbody className="px-4 py-2">
           {dummyData.map((data, index) => (
            <tr key={index}>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              {data.category}
             </td>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              {data.totalSent}
             </td>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              {data.delivered}
             </td>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              N{data.failed}
             </td>          
-            <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238] ${
+            <td className={`otherTablesTDstyling ${
                       data.avgTime < 3
                         ? "text-green-600"
                         : (data.avgTime > 3 && data.avgTime < 10)
@@ -313,7 +313,7 @@ const CommunicationsReportTable = () => {
       <section className="p-3 border border-s-stone-500 mt-6 rounded-lg">
         <span className="inline-block text-left font-bold mb-1.5">Delivery Performance by Category</span>
 
-        <table className="w-full border-collapse border border-gray-200 mb-6 text-sm rounded-2xl">
+        <table className="tableheadingStyle">
          <thead className="bg-gray-100">
             <tr>
               {table2Headers.map((field, index) => (
@@ -329,25 +329,25 @@ const CommunicationsReportTable = () => {
          <tbody className="px-4 py-2">
           {dummyData2.map((data, index) => (
            <tr key={index}>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              NOT-{data.id}
             </td>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              {data.passenger}
             </td>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              {data.type}
             </td>
-            <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+            <td className="otherTablesTDstyling">
              {data.channel}
             </td>          
-            <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]`}>
+            <td className={`otherTablesTDstyling`}>
               {data.failureReason}
             </td>
             <td className="px-2 py-1.5 border-b border-gray-200 text-[#263238]">
              {data.timestamp}
             </td>
-            <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238] ${
+            <td className={`otherTablesTDstyling ${
                       data.status === "Sent"
                         ? "text-green-600"
                         : data.status === "Pending"

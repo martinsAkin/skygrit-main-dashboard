@@ -319,3 +319,34 @@ export const categories: ReportCategory[] = [
   "Communication",
   "Compliance",
 ];
+
+export type client_data = {
+ id: number;
+ clientId: number;
+ clientName: string;
+ internalAcc: string;
+ email: string;
+ type: string;
+ category: string;
+ lastUpdated: string;
+ status: string;
+};
+
+export type clientManagement = "All" | "Indirect Sales" | "Corporate" | "Non-Corporate"
+
+export const tabs: clientManagement[] = [
+  "All",
+  "Indirect Sales",
+  "Corporate",
+  "Non-Corporate"
+];
+
+export type FormData = {
+  mgtType: string;
+  clientType: string;
+  businessUnit: string;
+  email: string;
+  clientCategory: string;
+  internalAccount: string;
+  fares: string;
+};

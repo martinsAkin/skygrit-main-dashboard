@@ -1,0 +1,371 @@
+ import { useState } from "react";
+ import ModulesBtnSet from "../molecules/ModulesBtnSet";
+ import { type ModulesProps } from "../../interface";
+
+ const AddNewClient = ({ onCancel }: ModulesProps) => {
+   const [visible, setVisible] = useState(false);
+   const [ mgtType, setMgtType ] = useState("");
+   const [ clientType, setClientType ] = useState("");
+   const [ businessUnit, setBusinessUnit ] = useState("");
+   const [ clientCategory, setClientCategory ] = useState("");
+   const [ fares, setFares ] = useState("");
+   const handleCancel = () => {
+     setVisible(!visible);
+   };
+
+   const clientTypeOptions = [
+     {
+       option: "Direct Sales",
+       value: "directSales"
+     },
+     {
+       option: "Inirect Sales",
+       value: "indirectSales"
+     }
+   ]
+   const businessUnitOption = [ "Commercial", "Non-Commercial", "Others" ]
+
+   return (
+     <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+       <div className="bg-white p-9 w-[518px] h-max rounded-[8px]">
+         <div className=" w-full flex flex-col gap-2">
+           {/* Headline */}
+           <div className="flex flex-row items-center justify-between">
+             <span className="p-3">
+               <h2 className="text-[24px] font-[500] text-[#374151]">
+                 Add New Client
+               </h2>
+               <span className="block mt-1 text-[11px]">
+                 Provide required information to create a client
+               </span>
+             </span>
+             <span className="w-[36px] h-[36px]" onClick={handleCancel}>
+               <img
+                 className="w-full"
+                 src="/src/assets/Icons/Cancel.svg"
+                 alt="cancel"
+               />
+             </span>
+           </div>
+           {/* Form */}
+
+           <form action="#">
+             <div className="flex flex-col gap-1.5">
+              
+               <select
+                 value={mgtType}
+                 onChange={(e) => setMgtType(e.target.value)}
+                 className="inputStyling"
+               >
+                 <option value="">Select Management Type</option>
+                 <option value="specific">Specific</option>
+                 <option value="general">General</option>
+               </select>
+
+               {
+                 mgtType == "specific" ? (
+                 <div>
+                     <div className="flex flex-col gap-1">
+                         <label htmlFor="name" className="labelStyling">
+                           Client Name
+                         </label>
+                         <input
+                           type="text"
+                           name="name"
+                           required
+                           placeholder="Enter client name"
+                           className="inputStyling"
+                         />
+                     </div>
+                     <div className="flex flex-col gap-1">
+                       <label htmlFor="email" className="labelStyling">
+                         Email Address
+                       </label>
+                       <input
+                         type="text"
+                         name="email"
+                         required
+                         placeholder="Enter address"
+                         className="inputStyling"
+                       />
+                     </div>
+
+                     <div className="flex flex-col gap-1">
+                       <label htmlFor="businessUnit" className="labelStyling">
+                         Business Unit
+                       </label>
+                       <span className="relative flex flex-col">
+                         <select
+                           id="businessUnit"
+                           name="businessUnit"
+                           className="inputStyling"
+                           value={businessUnit}
+                           onChange={(e) => setBusinessUnit(e.target.value)}
+                         >
+                           <option value="">--Select Business Unit--</option>
+                           {businessUnitOption.map((type, index) => (
+                             <option key={index} value={type}>
+                               {type}
+                             </option>
+                           ))}
+                         </select>
+                       </span>
+                     </div>
+
+                     <div className="flex flex-col gap-1">
+                       <label htmlFor="clientType" className="labelStyling">
+                         Client Type
+                       </label>
+                       <span className="relative flex flex-col">
+                         <select
+                           id="clientType"
+                           name="clientType"
+                           value={clientType}
+                           onChange={(e) => setClientType(e.target.value)}
+                           className="inputStyling"
+                         >
+                           <option value="">--Select Client Type--</option>
+                           {clientTypeOptions.map((type, index) => (
+                             <option key={index} value={type.value}>
+                               {type.option}
+                             </option>
+                           ))}
+                         </select>
+                       </span>
+                     </div>
+                 </div>
+                 )
+                 :
+                 mgtType == "general" ? (
+                   <div>
+                       <div className="flex flex-col gap-1">
+                       <label htmlFor="businessUnit" className="labelStyling">
+                         Business Unit
+                       </label>
+                       <span className="relative flex flex-col">
+                         <select
+                           id="businessUnit"
+                           name="businessUnit"
+                           className="inputStyling"
+                           value={businessUnit}
+                           onChange={(e) => setBusinessUnit(e.target.value)}
+                         >
+                           <option value="">--Select Business Unit--</option>
+                           {businessUnitOption.map((type, index) => (
+                             <option key={index} value={type}>
+                               {type}
+                             </option>
+                           ))}
+                         </select>
+                       </span>
+                     </div>
+
+                     <div className="flex flex-col gap-1">
+                       <label htmlFor="clientType" className="labelStyling">
+                         Client Type
+                       </label>
+                       <span className="relative flex flex-col">
+                         <select
+                           id="clientType"
+                           name="clientType"
+                           value={clientType}
+                           onChange={(e) => setClientType(e.target.value)}
+                           className="inputStyling"
+                         >
+                           <option value="">--Select Client Type--</option>
+                           {clientTypeOptions.map((type, index) => (
+                             <option key={index} value={type.value}>
+                               {type.option}
+                             </option>
+                           ))}
+                         </select>
+                       </span>
+                     </div>
+                   </div>
+                 ): ""}
+
+                 {
+                   mgtType == "specific"  && clientType == "directSales" ? (
+                     <div>
+                       <select
+                         value={clientCategory}
+                         onChange={(e) => setClientCategory(e.target.value)}
+                         className="inputStyling"
+                       >
+                         <option value="">Select Client Category</option>
+                         <option value="corporate">Corporate</option>
+                         <option value="nonCorporate">Non-Corporate</option>
+                       </select>
+                     </div>
+                 ) 
+                 :
+                  mgtType == "specific" && clientType == "indirectSales" ? (
+                   <div>
+                     <select
+                         value={clientCategory}
+                         onChange={() => setClientCategory("corporate")}
+                         className="inputStyling"
+                       >
+                         <option value="corporate">Corporate</option>
+                       </select>
+
+                       <div className="flex flex-col gap-1">
+                       <label htmlFor="account" className="labelStyling">
+                         Internal Account
+                       </label>
+                       <input
+                         type="text"
+                         name="account"
+                         required
+                         placeholder="Enter Account"
+                         className="inputStyling"
+                       />
+                     </div>
+                   </div>
+                  ) : ""}
+
+                 {
+                  mgtType == "specific" && clientCategory == "corporate" ? (
+                     <div className="flex flex-col gap-1">
+                       <label htmlFor="account" className="labelStyling">
+                         Internal Account
+                       </label>
+                       <input
+                         type="text"
+                         name="account"
+                         required
+                         placeholder="Enter Account"
+                         className="inputStyling"
+                       />
+                     </div>
+                   )
+                   : 
+                   mgtType == "specific" && clientCategory == "nonCorporate" ? (
+                     <div>
+                         <select
+                         value={fares}
+                         onChange={(e) => setFares(e.target.value)}
+                         className="inputStyling"
+                       >
+                         <option value="regular">Regular</option>
+                         <option value="discounted">Discounted/Promotional</option>
+                       </select>
+                     </div>
+                   ) : ""
+                 }
+
+                
+                 {/* general managemment type comparison */}
+                 {
+                   mgtType == "general" && clientType == "directSales" ? (
+                     <div>
+                       <select
+                         value={clientCategory}
+                         onChange={(e) => setClientCategory(e.target.value)}
+                         className="inputStyling"
+                       >
+                         <option value="corporate">Select Client Category</option>
+                         <option value="corporate">Corporate</option>
+                         <option value="nonCorporate">Non-Corporate</option>
+                       </select>
+                     </div>
+                   ) 
+                   : 
+                     mgtType == "general" && clientType == "indirectSales" ? (
+                     <div>
+                       <select
+                         value={clientCategory}
+                         onChange={() => setClientCategory("corporate")}
+                         className="inputStyling"
+                       >
+                         <option value="corporate">Corporate</option>
+                       </select>
+
+                       <div className="flex flex-col gap-1">
+                         <label htmlFor="email" className="labelStyling">
+                           Email Address
+                         </label>
+                         <input
+                           type="text"
+                           name="email"
+                           required
+                           placeholder="Enter address"
+                           className="inputStyling"
+                         />
+                       </div>
+
+                       <div className="flex flex-col gap-1">
+                         <label htmlFor="account" className="labelStyling">
+                           Internal Account
+                         </label>
+                         <input
+                           type="text"
+                           name="account"
+                           required
+                           placeholder="Enter Account"
+                           className="inputStyling"
+                         />
+                       </div>
+
+                     </div>
+                     )
+                     : ""
+                 }
+
+                 {
+                   mgtType == "general" && clientCategory == "corporate" ? (
+                     <div>
+                       <div className="flex flex-col gap-1">
+                         <label htmlFor="email" className="labelStyling">
+                           Email Address
+                         </label>
+                         <input
+                           type="text"
+                           name="email"
+                           required
+                           placeholder="Enter address"
+                           className="inputStyling"
+                         />
+                       </div>
+
+                       <div className="flex flex-col gap-1">
+                         <label htmlFor="account" className="labelStyling">
+                           Internal Account
+                         </label>
+                         <input
+                           type="text"
+                           name="account"
+                           required
+                           placeholder="Enter Account"
+                           className="inputStyling"
+                         />
+                       </div>
+                     </div>
+                   ) 
+                   : 
+                     mgtType == "general" && clientCategory == "nonCorporate" ? (
+                     <div>
+                       <select
+                         value={fares}
+                         onChange={(e) => setFares(e.target.value)}
+                         className="inputStyling"
+                       >
+                         <option value="regular">Regular</option>
+                         <option value="discounted">Discounted/Promotional</option>
+                       </select>
+                     </div>
+                     )
+                     : ""
+                 }
+
+             </div>
+           </form>
+
+           <ModulesBtnSet onCancel={onCancel} text2="Create User"/>
+         </div>
+       </div>
+     </div>
+   );
+ };
+
+ export default AddNewClient;

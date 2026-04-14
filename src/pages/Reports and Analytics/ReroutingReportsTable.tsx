@@ -169,7 +169,7 @@ const ReroutingReportsTable = () => {
             {tableHeaders.map((field, index) => (
               <th
                 key={index}
-                className="p-3 text-left text-[12.5px] font-bold text-[#263238] border-b border-gray-200"
+                className="tableheader"
               >
                 {field}
               </th>
@@ -179,19 +179,19 @@ const ReroutingReportsTable = () => {
        <tbody className="px-4 py-2">
         {dummyData.map((data, index) => (
          <tr key={index}>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238]">
+          <td className="reroutingTDstyling">
            RRT-{data.pnr}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238]">
+          <td className="reroutingTDstyling">
            {data.passenger}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238]">
+          <td className="reroutingTDstyling">
            SK-{data.originalflight}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238]">
+          <td className="reroutingTDstyling">
            SK-{data.newflight}
           </td>
-          <td className={`px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238] ${
+          <td className={`reroutingTDstyling ${
                     data.type === "Upgrade"
                       ? "text-green-600"
                       : data.type === "Downgrade"
@@ -208,10 +208,10 @@ const ReroutingReportsTable = () => {
             {data.type}
             </div>
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238]">
+          <td className="reroutingTDstyling">
            {data.classchange}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238]">
+          <td className="reroutingTDstyling">
            {data.costimpact}
           </td>
           <td className={`px-2 py-1.5 border-b border-gray-200 text-[12.5px] ${

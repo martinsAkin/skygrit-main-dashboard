@@ -14,6 +14,7 @@ import userManualIcon from "/assets/Icons/ix_user-manual.svg";
 import settingsIcon from "/assets/Icons/gear-six.svg";
 import logOutIcon from "/assets/Icons/sign-out.svg";
 import skyGrit from "/assets/SkygritLogoWhite.svg";
+import user from "/assets/Icons/client.svg"
 
 const Sidebar = () => {
  interface sidebarType {
@@ -28,6 +29,7 @@ const Sidebar = () => {
   { icon: policyIcon, title: "Policy Management", to: "/policy-management" },
   { icon: alertIcon, title: "Alert & Notifications", to: "/notifications" },
   { icon: reportIcon, title: "Reports & Analytics", to: "/reports" },
+  { icon: user, title: "Client Management", to: "/client-management"},
   { icon: userIcon, title: "User Management", to: "/user-management" },
   { icon: auditIcon, title: "Audit Trail", to: "/audit" },
   { icon: helpIcon, title: "Help & Support", to: "/support" },

@@ -152,7 +152,7 @@ const SettlementsReportsTable = () => {
        <span className="inline-block">Settlement Transactions</span>
        <span className="inline-block text-blue-500 underline">View All</span>
       </div>
-      <table className="w-full border-collapse border border-gray-200 mb-6 text-sm rounded-2xl">
+      <table className="tableheadingStyle">
        <thead className="bg-gray-100">
           <tr>
             {tableHeaders.map((field, index) => (
@@ -168,25 +168,25 @@ const SettlementsReportsTable = () => {
        <tbody className="px-4 py-2">
         {dummyData.map((data, index) => (
          <tr key={index}>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            STL-{data.settlementId}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.partner}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.period}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            N{data.amount}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            N{data.reconciled}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            N{data.variance}
           </td>
-          <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238] ${
+          <td className={`otherTablesTDstyling ${
                     data.status === "Reconciled"
                       ? "text-green-600"
                       : data.status === "Pending"

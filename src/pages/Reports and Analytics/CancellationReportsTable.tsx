@@ -166,7 +166,7 @@ const CancellationReportsTable = () => {
             {tableHeaders.map((field, index) => (
               <th
                 key={index}
-                className="p-3 text-left text-[12.5px] font-bold text-[#263238] border-b border-gray-200"
+                className="tableheader"
               >
                 {field}
               </th>
@@ -176,22 +176,22 @@ const CancellationReportsTable = () => {
        <tbody className="px-4 py-2">
         {dummyData.map((data, index) => (
          <tr key={index}>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            SK-{data.flightNo}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.route}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.date}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.reason}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.passengers}
           </td>
-          <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238] ${
+          <td className={`otherTablesTDstyling ${
                     data.notified === "100%"
                       ? "text-green-600"
                       : data.notified === "94%"

@@ -164,24 +164,12 @@ const RefundReportTable = () => {
             </section>
 
       <section className="p-3 border border-s-stone-500 mt-6 rounded-lg">
-       <div className="flex justify-between">
+       <div className="flex justify-between my-1.5 items-center">
          <span className="inline-block">Refund Requests</span>
-         <div className="grid grid-cols-3">
-           <Button 
-            text="All"
-            textColor="text-blue-700"
-            bgColor="bg-blue-200"
-           />
-           <Button 
-            text="Pending"
-            textColor="text-black"
-            bgColor="bg-white"
-           />
-           <Button 
-            text="Completed"
-            textColor="text-black"
-            bgColor="bg-white"
-           />
+         <div className="flex gap-2">
+           <button className="refundTableBtn">All</button>
+           <button className="refundTableBtn">Pending</button>
+           <button className="refundTableBtn">Completed</button>
          </div>
       </div>
       <table className="w-full border-collapse border border-gray-200 mb-6 text-sm rounded-lg">
@@ -190,7 +178,7 @@ const RefundReportTable = () => {
             {tableHeaders.map((field, index) => (
               <th
                 key={index}
-                className="p-3 text-left text-[12.5px] font-bold text-[#263238] border-b border-gray-200"
+                className="tableheader"
               >
                 {field}
               </th>
@@ -200,22 +188,22 @@ const RefundReportTable = () => {
        <tbody className="px-4 py-2">
         {dummyData.map((data, index) => (
          <tr key={index}>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            REQ-{data.pnr}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.passenger}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.channel}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.amount}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.method}
           </td>
-          <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238] ${
+          <td className={`otherTablesTDstyling ${
                     data.status === "Completed"
                       ? "text-green-600"
                       : data.status === "Pending"

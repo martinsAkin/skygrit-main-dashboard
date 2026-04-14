@@ -154,13 +154,13 @@ const tableHeaders = [
        <span className="inline-block">NCAA Regulatory Reports</span>
        <button className="bg-blue-500 text-white py-2 px-1.5 text-center rounded-lg text-[12px]">Generate Custom Report</button>
       </div>
-      <table className="w-full border-collapse border border-gray-200 mb-6 text-sm rounded-2xl">
+      <table className="tableheadingStyle">
        <thead className="bg-gray-100">
           <tr>
             {tableHeaders.map((field, index) => (
               <th
                 key={index}
-                className="p-3 text-left text-[12.5px] font-bold text-[#263238] border-b border-gray-200"
+                className="tableheader"
               >
                 {field}
               </th>
@@ -170,16 +170,16 @@ const tableHeaders = [
        <tbody className="px-4 py-2">
         {dummyData.map((data, index) => (
          <tr key={index}>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.reportName}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.frequency}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.lastGenerated}
           </td>
-          <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238] ${
+          <td className={`otherTablesTDstyling ${
                     data.status === "Submitted"
                       ? "text-green-800 font-bold"
                       : data.status === "Pending"
@@ -196,7 +196,7 @@ const tableHeaders = [
                   {data.status}
            </div>
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.nextDue}
           </td>
           <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] hover:underline cursor-pointer ${

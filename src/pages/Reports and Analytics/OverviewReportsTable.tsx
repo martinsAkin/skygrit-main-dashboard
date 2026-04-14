@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { DashboardAnalytics } from "../Dashboard/components/DashboardComponents";
 
-type data = {
+export type data = {
  reportType: string;
  generatedAt: string;
  period: string;
@@ -126,13 +126,13 @@ const OverviewReportsTable = () => {
        <span className="inline-block">Recent Reports</span>
        <span className="inline-block text-blue-500 underline">View All</span>
       </div>
-      <table className="w-full border-collapse border border-gray-200 mb-6 text-sm rounded-2xl">
+      <table className="tableheadingStyle">
        <thead className="bg-gray-100">
           <tr>
             {tableHeaders.map((field, index) => (
               <th
                 key={index}
-                className="p-3 text-left text-[12.5px] font-bold text-[#263238] border-b border-gray-200"
+                className="tableheader"
               >
                 {field}
               </th>
@@ -142,16 +142,16 @@ const OverviewReportsTable = () => {
        <tbody className="px-4 py-2">
         {dummyData.map((data, index) => (
          <tr key={index}>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.reportType}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.generatedAt}
           </td>
-          <td className="px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238]">
+          <td className="otherTablesTDstyling">
            {data.period}
           </td>
-          <td className={`px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238] ${
+          <td className={`otherTablesTDstyling ${
                     data.status === "Completed"
                       ? "text-green-600"
                       : data.status === "Processing"

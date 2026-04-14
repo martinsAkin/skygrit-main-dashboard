@@ -78,3 +78,28 @@ hr {
 .editBtns {
  @apply border border-gray-400 text-center py-2 px-4 text-[12px] rounded-[10px];
 }
+.refundTableBtn{
+ @apply bg-blue-300 text-blue-700 w-max p-2.5 rounded-lg text-[13px];
+}
+
+/* Reports and Analytics */
+.tableheadingStyle{
+ @apply w-full border-collapse border border-gray-200 mb-6 text-sm rounded-2xl;
+}
+.tableheader{
+ @apply p-3 text-left text-[12.5px] font-bold text-[#263238] border-b border-gray-200;
+}
+.reroutingTDstyling{
+ @apply px-2 py-1.5 border-b border-gray-200 text-[12.5px] text-[#263238];
+}
+.otherTablesTDstyling{
+ @apply px-2 py-1.5 border-b border-gray-200 text-[13px] text-[#263238];
+}
+
+/* client management */
+.labelStyling{
+ @apply text-[12px] font-medium text-[#1F2937] mt-1;
+}
+.inputStyling {
+ @apply w-full px-[16px] py-[10px] border-[1px] border-[#C6C6C6] rounded-[4px] font-medium text-[12px] text-[#6E767A] placeholder-[#8D8D8D] active:outline-none focus:outline-none;
+}

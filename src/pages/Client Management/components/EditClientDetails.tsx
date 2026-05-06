@@ -30,7 +30,7 @@ const EditClientDetails = () => {
  }
 
   return (
-    <div className="w-full px-4 pl-70">
+    <div className="w-full px-4 ">
        <section className='flex justify-between'>
         <div>
          <h1 className="font-bold text-2xl">Workflow Configuration: {client.clientName} </h1>

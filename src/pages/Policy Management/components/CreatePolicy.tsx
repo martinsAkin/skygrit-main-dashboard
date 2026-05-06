@@ -40,7 +40,7 @@ const CreatePolicy = () => {
   };
 
   return (
-    <div className="py-4 px-16 pl-70">
+    <div className="py-4 px-16 ">
       <section className=" flex justify-between mt-6">
         <div className="flex flex-col gap-0">
           <h2 className="text-2xl font-semibold text-gray-800">

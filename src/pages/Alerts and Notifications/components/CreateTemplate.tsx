@@ -113,7 +113,7 @@ const CreateTemplate = () => {
 
   return (
     <div>
-      <div className="py-4 px-16 pl-70">
+      <div className="py-4 px-16 ">
         <div>
           <h2 className="text-2xl font-semibold text-gray-800">
             Notification Engine

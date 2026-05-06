@@ -8,7 +8,7 @@ import DateRangePicker from "../../components/molecules/DateRangePicker";
 
 const Dashboard = () => {
   return (
-    <div className="w-[100%] px-4 pl-70">
+    <div className="w-[100%] px-4 ">
       <div className="flex justify-between items-center py-2 px-12 ">
         <ul className="list-none">
           <li className="text-2xl font-semibold">Dashboard</li>

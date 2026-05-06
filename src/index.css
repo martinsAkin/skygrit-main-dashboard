@@ -81,6 +81,9 @@ hr {
 .refundTableBtn{
  @apply bg-blue-300 text-blue-700 w-max p-2.5 rounded-lg text-[13px];
 }
+.tableRowStyling{
+ @apply px-4 py-2 border-b border-gray-200 text-[12px] text-[#263238];
+}
 
 /* Reports and Analytics */
 .tableheadingStyle{

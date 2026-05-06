@@ -1,5 +1,4 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import homeIcon from "/assets/Icons/house-simple.svg";
@@ -16,7 +15,12 @@ import logOutIcon from "/assets/Icons/sign-out.svg";
 import skyGrit from "/assets/SkygritLogoWhite.svg";
 import user from "/assets/Icons/client.svg"
 
-const Sidebar = () => {
+
+interface SidebarProps {
+  isCollapsed: boolean;
+  toggleSidebar: () => void;
+}
+const Sidebar = ({ isCollapsed, toggleSidebar }: SidebarProps) => {
  interface sidebarType {
   icon: string;
   title: string;
@@ -37,7 +41,7 @@ const Sidebar = () => {
   { icon: settingsIcon, title: "Settings", to: "/settings" },
  ];
 
- const [toggle, setToggle] = useState(false);
+//  const [toggle, setToggle] = useState(false);
  const location = useLocation();
  const navigate = useNavigate();
 
@@ -47,27 +51,21 @@ const Sidebar = () => {
  };
 
  return (
-  <div className={toggle ? "w-12 overflow-hidden" : " "}>
-   {toggle ? (
+  <div className={`${isCollapsed ? "w-20" : "w-64"} transition-all duration-300`}>
     <div className="bg-[#030E20] h-screen flex flex-col gap-[16px]">
-     <button onClick={() => setToggle(!toggle)}>
-      <img src="/assets/Icons/sidebar-left.svg" alt="icon" />
-     </button>
-    </div>
-   ) : (
-    <div className="bg-[#030E20] h-full flex flex-col gap-[16px] fixed top-0 left-0">
      {/* Side bar Head*/}
-     <section className="flex justify-center items-center px-4 py-[10px]">
-      <div className="flex flex-row w-full justify-between">
-       <img
-        className="w-[114px] h-[39px]"
-        src="/assets/Icons/image 1.svg"
-        alt="arik"
-       />
-       <button onClick={() => setToggle(!toggle)}>
-        <img src="/assets/Icons/sidebar-left.svg" alt="icon" />
-       </button>
-      </div>
+     <section className="flex justify-between items-center px-4 py-[10px]">
+
+      {!isCollapsed && (
+          <img
+            className="w-[114px] h-[39px]"
+            src="/assets/Icons/image 1.svg"
+            alt="arik"
+          />
+        )}
+        <button onClick={toggleSidebar}>
+          <img src="/assets/Icons/sidebar-left.svg" alt="icon" />
+        </button>
      </section>
 
      {/* Menu Items */}
@@ -76,21 +74,24 @@ const Sidebar = () => {
        <NavLink
         to={item.to}
         key={item.title}
-        className={`w-[220px] flex flex-row px-[12px] py-[10px] items-center gap-[12px] mb-3 cursor-pointer
+        className={`flex items-center gap-3 px-3 py-2 mb-2 cursor-pointer rounded-lg
                     ${
                      isActive(item.to)
-                      ? "bg-[#0D47A1] rounded-[8px] text-white font-bold hover:bg-blue-700"
+                      ? "bg-[#0D47A1] text-white font-bold hover:bg-blue-700"
                       : ""
                     }`}
        >
-        <img className="w-[24px]" src={item.icon} alt="icon" />
-        <p
-         className={`text-[16px] ${
-          isActive(item.to) ? "text-white" : "text-[#888991]"
-         }`}
-        >
-         {item.title}
-        </p>
+          <img className="w-[24px]" src={item.icon} alt="icon" />
+          
+          {!isCollapsed && (
+            <p
+              className={`text-[16px] ${
+              isActive(item.to) ? "text-white" : "text-[#888991]"
+            }`}
+            >
+          {item.title}
+          </p>
+          )}
        </NavLink>
       ))}
      </section>
@@ -124,7 +125,6 @@ const Sidebar = () => {
       </div>
      </section>
     </div>
-   )}
   </div>
  );
 };

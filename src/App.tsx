@@ -1,7 +1,7 @@
 import "./index.css";
 import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { ProtectedRoute } from "./routes/ProtectedRoute";
+// import { ProtectedRoute } from "./routes/ProtectedRoute";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import PolicyPage from "./pages/Policy Management/PolicyPage";
@@ -22,9 +22,14 @@ import ChannelSettings from "./pages/Alerts and Notifications/components/Channel
 import { ReportsAnalytics } from "./pages/Reports and Analytics/ReportsAnalytics";
 import ClientDashboard from "./pages/Client Management/ClientDashboard";
 import EditClientDetails from "./pages/Client Management/components/EditClientDetails";
+import InstantNotification from "./pages/Alerts and Notifications/Instant Notification/InstantNotification";
+import { useState } from "react";
 
 function App() {
  const location = useLocation();
+
+ const [ isCollapsed, setIsCollapsed ] = useState(false);
+
  const hideSidebarRoutes = ["/"];
  const shouldShowSidebar = !hideSidebarRoutes.includes(location.pathname);
 
@@ -33,14 +38,16 @@ function App() {
 
  return (
   <div className="flex bg-[#ffffff]">
-   {shouldShowSidebar && <Sidebar />}
+   {shouldShowSidebar && (
+    <Sidebar isCollapsed={isCollapsed} toggleSidebar={()=> setIsCollapsed(prev => !prev)}/>
+   )}
 
    <main className="flex-1 px-2.5 py-1 flex flex-col gap-2">
     {shouldHideHeadbar && <Headbar />}
 
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route element={<ProtectedRoute />}>
+      {/* <Route element={<ProtectedRoute />}> */}
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/policy-management" element={<PolicyPage />}/>
         <Route path="/policy-management" element={<ClientDashboard />}/>
@@ -55,9 +62,10 @@ function App() {
         <Route path="/upgrade-setup" element={<UpgradeSetup />} />
         <Route path="/audit" element={<AuditTrail />}/>
         <Route path="/notifications" element={<AlertsAndNotifications />}/>
+        <Route path="/instant-notification" element={<InstantNotification />} />
         <Route path="/channelsetting/:id" element={<ChannelSettings />} />
         <Route path="/templates/:id" element={<TemplateDetails version="2.0" />} />
-      </Route>
+      {/* </Route> */}
 
         <Route path="/client-management" element={<ClientDashboard />} />
         <Route path="/edit-client/:id" element={<EditClientDetails />} />

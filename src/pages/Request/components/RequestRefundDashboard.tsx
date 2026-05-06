@@ -106,22 +106,22 @@ const RequestRefundDashboard = () => {
                 <td className="px-2 py-2 border-b border-gray-200 text-[12px] text-[#263238]">
                   REQ-{item.id}
                 </td>
-                <td className="px-4 py-2 border-b border-gray-200 text-[12px] text-[#263238]">
+                <td className="tableRowStyling">
                   {item.date}
                 </td>
-                <td className="px-4 py-2 border-b border-gray-200 text-[12px] text-[#263238]">
+                <td className="tableRowStyling">
                   {item.customerName}
                 </td>
-                <td className="px-4 py-2 border-b border-gray-200 text-[12px] text-[#263238]">
+                <td className="tableRowStyling">
                   {item.type}
                 </td>
-                <td className="px-4 py-2 border-b border-gray-200 text-[12px] text-[#263238]">
+                <td className="tableRowStyling">
                   {item.email}
                 </td>
-                <td className="px-4 py-2 border-b border-gray-200 text-[12px] text-[#263238]">
+                <td className="tableRowStyling">
                   {item.amount}
                 </td>
-                <td className="px-4 py-2 border-b border-gray-200 text-[12px] text-[#263238]">
+                <td className="tableRowStyling">
                   {item.refundValue}
                 </td>
                 <td

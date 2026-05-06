@@ -52,7 +52,7 @@ const AuditTrail: React.FC = () => {
 
   const selectedAdmin = data.find((admin) => admin.adminId === activeAdminId);
   return (
-    <div className=" flex flex-col h-full pl-70">
+    <div className=" flex flex-col h-full ">
       {/* Header + Categories */}
       <section className=" bg-white border-b border-b-[#E5E7EB]">
         {/* Category Tabs */}

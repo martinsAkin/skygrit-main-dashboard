@@ -18,7 +18,7 @@ const ClientDashboard = () => {
   }
 
   return (
-    <div className="w-full px-4 pl-70">
+    <div className="w-full px-4 ">
       <section>
         <h1 className="font-bold text-2xl">Client Management</h1>
         <span className="inline-block text-[11px]">

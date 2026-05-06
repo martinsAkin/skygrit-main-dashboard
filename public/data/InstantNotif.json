@@ -1,0 +1,102 @@
+[
+ {
+  "passengerId": 10001,
+  "date": "2020-05-03 08:14:01",
+   "customerName": "Jason Njoku",
+   "email": "michelle.rivera@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Yanky",
+   "ticketType": "Individual",
+   "amout": "534,000"
+ },
+ {
+  "passengerId": 10002,
+  "date": "2020-05-01 06:05:46",
+   "customerName": "Chinbuike Victor",
+   "email": "michael.mitc@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Mike",
+   "ticketType": "Individual",
+   "amout": "134,000"
+ },
+ {
+  "passengerId": 10003,
+  "date": "2020-05-03 08:14:01",
+   "customerName": "Jason Njoku",
+   "email": "michelle.rivera@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Xray",
+   "ticketType": "Individual",
+   "amout": "40,000"
+ },
+ {
+  "passengerId": 10004,
+  "date": "2020-07-13 09:10:15",
+   "customerName": "Max Maxine",
+   "email": "debra.holt@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Yanky",
+   "ticketType": "Individual",
+   "amout": "334,000"
+ },
+ {
+  "passengerId": 10005,
+  "date": "2020-05-03 08:14:01",
+   "customerName": "Jason Mamoa",
+   "email": "aquaman@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Yanky",
+   "ticketType": "Individual",
+   "amout": "120,000"
+ },
+ {
+  "passengerId": 10006,
+  "date": "2020-05-03 08:14:01",
+   "customerName": "Jason Njoku",
+   "email": "michelle.rivera@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Xray",
+   "ticketType": "Individual",
+   "amout": "40,000"
+ },
+ {
+  "passengerId": 10007,
+  "date": "2020-07-13 09:10:15",
+   "customerName": "Max Maxine",
+   "email": "debra.holt@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Yanky",
+   "ticketType": "Individual",
+   "amout": "334,000"
+ },
+ {
+  "passengerId": 10008,
+  "date": "2020-05-03 08:14:01",
+   "customerName": "Jason Mamoa",
+   "email": "aquaman@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Yanky",
+   "ticketType": "Individual",
+   "amout": "120,000"
+ },
+ {
+  "passengerId": 10009,
+  "date": "2020-07-13 09:10:15",
+   "customerName": "Max Maxine",
+   "email": "debra.holt@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Yanky",
+   "ticketType": "Individual",
+   "amout": "334,000"
+ },
+ {
+  "passengerId": 10010,
+  "date": "2020-05-03 08:14:01",
+   "customerName": "Jason Mamoa",
+   "email": "aquaman@example.com",
+   "bookingRef": "AC48721",
+   "ticketClass": "Yanky",
+   "ticketType": "Individual",
+   "amout": "120,000"
+ }
+]

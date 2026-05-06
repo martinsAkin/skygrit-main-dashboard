@@ -20,7 +20,7 @@ const UserManagement = () => {
 
   return (
     <div>
-      <div className="flex flex-row h-full pl-70">
+      <div className="flex flex-row h-full ">
         <div className="flex flex-col w-full">
           <section className="py-2 px-16 bg-white border-b-[1px] border-b-[#E5E7EB]">
             <div className="flex flex-row justify-between items-center">

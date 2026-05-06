@@ -29,7 +29,7 @@ const RequestReview = () => {
     return <p className="text-red-600 text-2xl">Request not found!</p>;
 
   return (
-    <div className="w-full pl-70">
+    <div className="w-full ">
       <div className="flex justify-between my-2.5">
         <ReviewHeading reqNo={userData.id} reqDate={userData.reqDate} />
 

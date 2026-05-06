@@ -34,7 +34,7 @@ const TemplateDetails = ({version}: info) => {
   }
 
   return (
-    <div className="pl-70">
+    <div className="">
       <div className="py-4 px-16 flex justify-between items-center">
         <div>
           <h2 className="text-2xl font-semibold text-gray-800">

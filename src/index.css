@@ -106,3 +106,8 @@ hr {
 .inputStyling {
  @apply w-full px-[16px] py-[10px] border-[1px] border-[#C6C6C6] rounded-[4px] font-medium text-[12px] text-[#6E767A] placeholder-[#8D8D8D] active:outline-none focus:outline-none;
 }
+
+/* instant notification table */
+.tableTextSizing{
+ @apply px-2 py-1.5 border-b border-gray-200 text-[12px] text-[#263238]
+}

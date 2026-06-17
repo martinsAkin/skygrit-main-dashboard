@@ -24,6 +24,7 @@ import ClientDashboard from "./pages/Client Management/ClientDashboard";
 import EditClientDetails from "./pages/Client Management/components/EditClientDetails";
 import InstantNotification from "./pages/Alerts and Notifications/Instant Notification/InstantNotification";
 import { useState } from "react";
+import InstantNotificationMessage from "./pages/Alerts and Notifications/Instant Notification/InstantNotifTemplate";
 
 function App() {
  const location = useLocation();
@@ -63,6 +64,7 @@ function App() {
         <Route path="/audit" element={<AuditTrail />}/>
         <Route path="/notifications" element={<AlertsAndNotifications />}/>
         <Route path="/instant-notification" element={<InstantNotification />} />
+        <Route path="/instant-message" element={<InstantNotificationMessage />} />
         <Route path="/channelsetting/:id" element={<ChannelSettings />} />
         <Route path="/templates/:id" element={<TemplateDetails version="2.0" />} />
       {/* </Route> */}

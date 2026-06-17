@@ -287,6 +287,10 @@ export interface NotificationTemplate extends NotificationTemplatePayload {
   updatedAt: string;
 }
 
+export type InstantMesasage = Pick<NotificationTemplatePayload, "channel" | "content" | "subject" | "status"> & {
+  numberOfPassengers: number;
+}
+
 export interface FormState {
   name: string;
   category: string;
@@ -296,6 +300,10 @@ export interface FormState {
   subject: string;
   message: string;
   status: "DRAFT" | "PUBLISHED" | "DEACTIVATED" | "";
+}
+
+export type InstantNotification = Pick<FormState, "email" | "sms" | "whatsapp" | "subject" | "message" | "status" > & {
+  numberOfPassengers: number;
 }
 
 export type ReportCategory =
@@ -350,3 +358,14 @@ export type FormData = {
   internalAccount: string;
   fares: string;
 };
+
+export type InstantNotifTable = {
+  passengerId: number,
+  date: string,
+  customerName: string;
+  email: string;
+  bookingRef: string;
+  ticketClass: string;
+  ticketType: string;
+  amout: string;
+}

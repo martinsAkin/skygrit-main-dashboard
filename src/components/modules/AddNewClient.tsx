@@ -46,23 +46,23 @@ const AddNewClient = ({ onCancel }: ModulesProps) => {
 
   const businessUnitOptions = ["Commercial", "Non-Commercial", "Others"];
 
-  const generateClientName = () => {
-    const { mgtType, businessUnit, clientType, clientCategory, fares } = formData;
+  // const generateClientName = () => {
+  //   const { mgtType, businessUnit, clientType, clientCategory, fares } = formData;
 
-    if (!mgtType || !businessUnit || !clientType) return "";
+  //   if (!mgtType || !businessUnit || !clientType) return "";
 
-    const parts = [mgtType, businessUnit, clientType];
+  //   const parts = [mgtType, businessUnit, clientType];
 
-    if (clientCategory) parts.push(clientCategory);
+  //   if (clientCategory) parts.push(clientCategory);
 
-    if (clientCategory === "nonCorporate" && fares) {
-      parts.push(fares);
-    }
+  //   if (clientCategory === "nonCorporate" && fares) {
+  //     parts.push(fares);
+  //   }
 
-    return parts.join("_").replace(/\s+/g, "");
-  };
+  //   return parts.join("_").replace(/\s+/g, "");
+  // };
 
-  const clientName = generateClientName();
+  // const clientName = generateClientName();
 
 
   // Reusable Components for input and drop downs

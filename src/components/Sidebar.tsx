@@ -1,16 +1,16 @@
 import { NavLink, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import homeIcon from "/assets/Icons/house-simple.svg";
-import requestIcon from "/assets/Icons/arrows-left-right.svg";
-import policyIcon from "/assets/Icons/material-symbols_text-compare-outline.svg";
-import alertIcon from "/assets/Icons/si_notifications-line.svg";
-import reportIcon from "/assets/Icons/presentation-chart.svg";
-import userIcon from "/assets/Icons/user-gear.svg";
-import auditIcon from "/assets/Icons/watch.svg";
-import helpIcon from "/assets/Icons/link.svg";
-import userManualIcon from "/assets/Icons/ix_user-manual.svg";
-import settingsIcon from "/assets/Icons/gear-six.svg";
+import homeIcon from "/assets/house-simple.svg";
+import requestIcon from "/assets/arrows-left-right.svg";
+import policyIcon from "/assets/material-symbols_text-compare-outline.svg";
+import alertIcon from "/assets/si_notifications-line.svg";
+import reportIcon from "/assets/presentation-chart.svg";
+import userIcon from "/assets/user-gear.svg";
+import auditIcon from "/assets/watch.svg";
+import helpIcon from "/assets/link.svg";
+import userManualIcon from "/assets/ix_user-manual.svg";
+import settingsIcon from "/assets/settings.svg";
 import logOutIcon from "/assets/Icons/sign-out.svg";
 import skyGrit from "/assets/SkygritLogoWhite.svg";
 import user from "/assets/Icons/client.svg"
@@ -30,10 +30,10 @@ const Sidebar = ({ isCollapsed, toggleSidebar }: SidebarProps) => {
  const sideBar: sidebarType[] = [
   { icon: homeIcon, title: "Dashboard", to: "/dashboard" },
   { icon: requestIcon, title: "Request", to: "/requests/dashboard" },
+  { icon: user, title: "Client Management", to: "/client-management"},
   { icon: policyIcon, title: "Policy Management", to: "/policy-management" },
   { icon: alertIcon, title: "Alert & Notifications", to: "/notifications" },
   { icon: reportIcon, title: "Reports & Analytics", to: "/reports" },
-  { icon: user, title: "Client Management", to: "/client-management"},
   { icon: userIcon, title: "User Management", to: "/user-management" },
   { icon: auditIcon, title: "Audit Trail", to: "/audit" },
   { icon: helpIcon, title: "Help & Support", to: "/support" },

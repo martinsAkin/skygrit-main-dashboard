@@ -102,6 +102,7 @@ export interface AdminResponse {
 }
 
 export interface MenuUserMgtProps {
+  onView?: () => void;
  onEdit: () => void;
  onDeactivate: () => void;
  onDelete: () => void;
@@ -335,9 +336,20 @@ export type client_data = {
  internalAcc: string;
  email: string;
  type: string;
+ businessUnit: string;
  category: string;
+ fares: string;
  lastUpdated: string;
  status: string;
+ details: {
+  id: string;
+  legalName: string;
+  businessChannelType: string;
+  faresAllowed: string;
+  businessUnitAssignment: string;
+  clientCategory: string;
+  standardOfficeCode: string;
+ }
 };
 
 export type clientManagement = "All" | "Indirect Sales" | "Corporate" | "Non-Corporate"
@@ -369,3 +381,69 @@ export type InstantNotifTable = {
   ticketType: string;
   amout: string;
 }
+
+
+
+export interface ClientFormValues {
+  clientId: number;
+  clientName: string;
+  internalAcc: string;
+  email: string;
+  type: string;
+  businessUnit: string;
+  category: string;
+  faresPermissionType: string;
+}
+
+export type ClientStatus = "Active" | "Inactive" | "Suspended";
+
+export interface ClientDetail {
+  id: string;
+  legalName: string;
+  displayId: string;
+  internalAccount: string;
+  email: string;
+  status: ClientStatus;
+  businessChannelType: string;
+  faresAllowed: string;
+  businessUnitAssignment: string;
+  clientCategory: string;
+  standardOfficeCode: string;
+}
+
+export const emptyClientFormValues: ClientFormValues = {
+  clientId: 0,
+  clientName: "",
+  internalAcc: "",
+  email: "",
+  type: "",
+  businessUnit: "",
+  category: "",
+  faresPermissionType: "",
+};
+
+export const SALES_TYPE_OPTIONS = [
+  { label: "Indirect Sales", value: "indirect-sales" },
+  { label: "Direct Sales", value: "direct-sales" },
+  { label: "Online Travel Agency", value: "ota" },
+];
+
+export const BUSINESS_UNIT_OPTIONS = [
+  { label: "Commercial", value: "commercial" },
+  { label: "Corporate", value: "corporate" },
+  { label: "Government", value: "government" },
+  { label: "Leisure", value: "leisure" },
+];
+
+export const CATEGORY_OPTIONS = [
+  { label: "Corporate", value: "corporate" },
+  { label: "SME", value: "sme" },
+  { label: "Individual", value: "individual" },
+  { label: "Government", value: "government" },
+];
+
+export const FARES_PERMISSION_OPTIONS = [
+  { label: "Regular", value: "regular" },
+  { label: "Promotional", value: "promotional" },
+  { label: "Regular & Promotional", value: "regular-promotional" },
+];

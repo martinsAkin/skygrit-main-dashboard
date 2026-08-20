@@ -4,10 +4,21 @@ import refreshIcon from "/assets/Icons/refresh-2.png";
 import downIcon from "/assets/Icons/Down.png";
 import { useEffect, useState } from 'react';
 import menuOptIcon from "/assets/Icons/qlementine-icons_menu-dots-16.svg";
-import MenuUserMgt from '../../../components/molecules/MenuUserMgt';
 import { useNavigate } from 'react-router-dom';
-import type { client_data } from '../../../interface';
+import type { client_data, MenuUserMgtProps } from '../../../interface';
 import axios from 'axios';
+
+
+const Menu = ({onView, onEdit, onDeactivate, onDelete, onClose}: MenuUserMgtProps) => {
+  return (
+      <ol className="absolute p-1.5 rounded-lg top-0 bg-white z-50" onMouseLeave={onClose}>
+         <li className="userMgtLi" onClick={onView}>View</li>
+         <li className="userMgtLi" onClick={onEdit}>Edit</li>
+         <li className="userMgtLi" onClick={onDeactivate}>Deactivate</li>
+         <li className="userMgtLi-delete" onClick={onDelete}>Delete</li>
+       </ol>
+  )
+}
 
 const AllClients = () => {
 
@@ -22,11 +33,19 @@ const AllClients = () => {
     "Internal Account",
     "Email",
     "Type",
+    "Business Unit",
     "Category",
+    "Fares",
     "Last Updated",
     "Status",
     ""
   ];
+
+  const handleView = (id: number) => {
+    console.log("viewing user:", id);
+    navigate(`/clients/${id}`);
+    setOpenMenu(null);
+  };
 
  const handleEdit = (id: number) => {
   console.log("Edit user:", id);
@@ -109,32 +128,62 @@ const AllClients = () => {
            {data.email}
           </td>
           <td className={`px-2 py-1.5 border-b border-gray-200 text-[10px] text-[#263238] ${
-                    data.type === "Direct"
+                    data.type === "Direct Sales"
                       ? "text-green-600"
                       : data.type === "Indirect Sales"
                       ? "text-blue-600"
-                      : data.type === "Corporate"
-                      ? "text-amber-900"
-                      : data.type === "Non-Corporate"
-                      ? "text-purple-600"
                       : "text-black"
                   }`}>
                     <div className={`p-1 rounded-lg w-17 text-center text-[10px] ${
-                      data.type === "Direct" 
+                      data.type === "Direct Sales" 
                       ? "bg-green-200"
                       : data.type === "Indirect Sales"
                       ? "bg-blue-200 w-max"
-                      : data.type === "Corporate"
-                      ? "bg-amber-200"
-                      : data.type === "Non-Corporate"
-                      ? "bg-purple-200 w-max"
                       : "bg-black"
                     }`}>
                       {data.type}
                       </div>
             </td>
+            <td className={`px-2 py-1.5 border-b border-gray-200 text-[10px] text-[#263238] ${
+                    data.businessUnit === "Commercial"
+                      ? "text-[#0E7E92]"
+                      : data.businessUnit === "Non-Commercial"
+                      ? "text-[#A82121]"
+                      : data.businessUnit === "Others"
+                      ? "text-[#111827]"
+                      : "text-black"
+                  }`}>
+                    <div className={`p-1 rounded-lg w-17 text-center text-[10px] ${
+                      data.businessUnit === "Commercial" 
+                      ? "bg-[#DEFAFF]"
+                      : data.businessUnit === "Non-Commercial"
+                      ? "bg-[#FFE1E1] w-max"
+                      : data.businessUnit === "Others"
+                      ? "bg-[#F1F1F1]"
+                      : "bg-black"
+                    }`}>
+                      {data.businessUnit}
+                      </div>
+            </td>
+            <td className={`px-2 py-1.5 border-b border-gray-200 text-[10px] text-[#263238] ${
+                    data.category === "Corporate"
+                      ? "text-[#92400E]"
+                      : data.category === "Non-Corporate"
+                      ? "text-[#6B21A8]"
+                      : "text-black"
+                  }`}>
+                    <div className={`p-1 rounded-lg w-17 text-center text-[10px] ${
+                      data.category === "Corporate" 
+                      ? "bg-[#DEFAFF]"
+                      : data.category === "Non-Corporate"
+                      ? "bg-[#F3E8FF] w-max"
+                      : "bg-black"
+                    }`}>
+                      {data.category}
+                      </div>
+            </td>
           <td className="px-2 py-1.5 border-b border-gray-200 text-[11px] text-[#263238]">
-           {data.category}
+           {data.fares}
           </td>
           <td className="px-2 py-1.5 border-b border-gray-200 text-[11px] text-[#263238]">
            {data.lastUpdated}
@@ -159,7 +208,8 @@ const AllClients = () => {
         </button>
         {openMenu === data.id && (
          <div className="absolute right-5 top-5">
-          <MenuUserMgt
+          <Menu
+            onView={() => handleView(data.id)}
            onEdit={() => handleEdit(data.id) }
            onDeactivate={() => handleDeactivate(data.id)}
            onDelete={() => handleDelete(data.id)}

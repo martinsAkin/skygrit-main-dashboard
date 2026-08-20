@@ -2,20 +2,22 @@ import { useState } from "react"
 import { tabs, type clientManagement } from "../../interface"
 import AllClients from "./components/AllClients";
 import addIcon from "/assets/Icons/material-symbols_add-rounded.svg";
-import AddNewClient from "../../components/modules/AddNewClient";
+// import AddNewClient from "../../components/modules/AddNewClient";
+import { useNavigate } from "react-router";
 
 const ClientDashboard = () => {
+  const navigate = useNavigate();
  const [activeTab, setActiveTab] = useState<clientManagement>("All");
- const [showForm, setShowForm] = useState(false);
+//  const [showForm, setShowForm] = useState(false);
   // const [refreshKey, setRefreshKey] = useState(0);
  
- const handleOpenForm = () => setShowForm(true);
- const handleCloseForm = () => setShowForm(false);
+//  const handleOpenForm = () => setShowForm(true);
+//  const handleCloseForm = () => setShowForm(false);
 
- const handleRefresh = () => {
-    setShowForm(false);
-    // setRefreshKey((prevKey) => prevKey + 1);
-  }
+//  const handleRefresh = () => {
+//     setShowForm(false);
+//     // setRefreshKey((prevKey) => prevKey + 1);
+//   }
 
   return (
     <div className="w-full px-4 ">
@@ -49,7 +51,7 @@ const ClientDashboard = () => {
         </ul>
         <button
           className="flex gap-1.5 flex-row items-center justify-center px-3 py-2 bg-[#0D47A1] text-white rounded-[8px] text-[14px] font-medium  hover:bg-[#1565C0] transition cursor-pointer"
-          onClick={handleOpenForm}
+          onClick={() => navigate("/clients/new")}
         >
           <img src={addIcon} alt="add" />
           <p>Add New Client</p>
@@ -64,7 +66,7 @@ const ClientDashboard = () => {
         {activeTab === "Non-Corporate" && <ReroutingReportsTable/>} */}
       </section>
 
-      {showForm && <AddNewClient onCancel={handleCloseForm} onSuccess={handleRefresh} />}
+      {/* {showForm && <AddNewClient onCancel={handleCloseForm} onSuccess={handleRefresh} />} */}
     </div>
   );
 };

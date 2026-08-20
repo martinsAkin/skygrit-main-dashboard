@@ -25,6 +25,8 @@ import EditClientDetails from "./pages/Client Management/components/EditClientDe
 import InstantNotification from "./pages/Alerts and Notifications/Instant Notification/InstantNotification";
 import { useState } from "react";
 import InstantNotificationMessage from "./pages/Alerts and Notifications/Instant Notification/InstantNotifTemplate";
+import ClientFormPage from "./pages/Client Management/components/ClientFormPage";
+import ClientDetailsPage from "./pages/Client Management/components/ClientDetailsPage";
 
 function App() {
  const location = useLocation();
@@ -51,7 +53,6 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<Dashboard />}/>
         <Route path="/policy-management" element={<PolicyPage />}/>
-        <Route path="/policy-management" element={<ClientDashboard />}/>
         <Route path="/requests/dashboard" element={<Request />}/>
         <Route path="/details/:id" element={<RequestReview />}/>
         
@@ -70,6 +71,9 @@ function App() {
       </Route>
 
         <Route path="/client-management" element={<ClientDashboard />} />
+        <Route path="/clients/:id" element={<ClientDetailsPage />} />
+        <Route path="/clients/new" element={<ClientFormPage />} />
+        <Route path="/clients/:id/edit" element={<ClientFormPage />} />
         <Route path="/edit-client/:id" element={<EditClientDetails />} />
         <Route path="/reports" element={<ReportsAnalytics />}/>
     </Routes>

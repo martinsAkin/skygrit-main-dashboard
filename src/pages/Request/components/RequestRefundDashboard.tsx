@@ -22,9 +22,11 @@ const RequestRefundDashboard = () => {
     "Type",
     "Email",
     "Amount",
+    "Refund ID",
     "Refund Value",
+    "Business Unit",
     "Status",
-    "Actions",
+    "",
   ];
 
   const [category, setCategory] = useState("All");
@@ -119,24 +121,67 @@ const RequestRefundDashboard = () => {
                   {item.email}
                 </td>
                 <td className="tableRowStyling">
-                  {item.amount}
+                  ₦{item.amount}
                 </td>
                 <td className="tableRowStyling">
-                  {item.refundValue}
+                  { item.status === "Declined" 
+                    ? "-" 
+                    : item.status === "Pending"
+                    ? "-"
+                    : item.status === "Approved"
+                    ? "-"
+                    : item.status === "Review"
+                    ? "-"
+                    : `REQ-${item.id}`
+                  }
+                  
                 </td>
-                <td
-                  className={`px-4 py-2 border-b border-gray-200 font-medium text-[12px] ${
-                    item.status === "Approved"
-                      ? "text-green-600"
-                      : item.status === "Pending"
-                      ? "text-yellow-600"
-                      : item.status === "Declined"
-                      ? "text-red-700"
-                      : item.status === "In-Progress"
-                      ? "text-amber-500"
+                <td className="tableRowStyling">
+                  { item.status === "Declined" 
+                    ? "-" 
+                    : item.status === "Pending"
+                    ? "-"
+                    : item.status === "Review"
+                    ? "-"
+                    : item.refundValue
+                  }
+                </td>
+                <td className={`px-2 py-1.5 border-b border-gray-200 text-[10px] text-[#263238] ${
+                    item.businessUnit === "Commercial"
+                      ? "text-[#0E7E92]"
+                      : item.businessUnit === "Non-Commercial"
+                      ? "text-[#A82121]"
+                      : item.businessUnit === "Others"
+                      ? "text-[#111827]"
                       : "text-black"
-                  }`}
+                  }`}>
+                    <div className={`p-1 rounded-lg w-17 text-center text-[10px] ${
+                      item.businessUnit === "Commercial" 
+                      ? "bg-[#DEFAFF]"
+                      : item.businessUnit === "Non-Commercial"
+                      ? "bg-[#FFE1E1] w-max"
+                      : item.businessUnit === "Others"
+                      ? "bg-[#F1F1F1]"
+                      : "bg-black"
+                    }`}>
+                      {item.businessUnit}
+                      </div>
+            </td>
+                <td
+                  className={`px-4 py-2 mt-0.5 border-b border-gray-200 font-medium text-[12px] flex gap-3 items-center`}
                 >
+                  <div className={`h-1.5 w-1.5 rounded-[50%] ${
+                    item.status === "Approved"
+                      ? "bg-green-600"
+                      : item.status === "Pending"
+                      ? "bg-yellow-600"
+                      : item.status === "Declined"
+                      ? "bg-red-700"
+                      : item.status === "In-Progress"
+                      ? "bg-amber-500"
+                      : "bg-black"
+                  }`}>
+                  </div>
                   {item.status}
                 </td>
                 <td className="px-4 py-2 border-b border-gray-200 text-[12px]">

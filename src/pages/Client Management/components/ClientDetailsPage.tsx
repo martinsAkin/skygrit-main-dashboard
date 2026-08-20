@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
-import { clientsApi } from "../../../api/clientmanagementService";
-import type { client_data, ClientDetail } from "../../../interface";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+// import { clientsApi } from "../../../api/clientmanagementService";
+import type { client_data } from "../../../interface";
 import { InfoBadge } from "../../../components/molecules/InfoBadge";
 import { DetailField } from "../../../components/molecules/InfoBadge";
 import axios from "axios";

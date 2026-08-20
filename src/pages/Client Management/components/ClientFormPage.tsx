@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import ClientForm from "../components/ClientForm";
-import { clientsApi } from "../../../api/clientmanagementService";
+// import { clientsApi } from "../../../api/clientmanagementService";
 import type { client_data, ClientFormValues } from "../../../interface";
 import axios from "axios";
 
@@ -90,9 +90,11 @@ export default function ClientFormPage() {
 
   async function handleSubmit(values: ClientFormValues) {
     if (isEdit && id) {
-      await clientsApi.updateClient(id, values);
+    //   await clientsApi.updateClient(id, values);
+    console.log(values)
     } else {
-      await clientsApi.createClient(values);
+    //   await clientsApi.createClient(values);
+    console.log(values)
     }
     goBackToList();
   }

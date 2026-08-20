@@ -42,12 +42,17 @@ export default function ClientForm({ mode, initialValues, onSubmit, onCancel }: 
 
   function validate(): boolean {
     const nextErrors: FormErrors = {};
+  
     for (const field of REQUIRED_FIELDS) {
-      if (!values[field].trim()) nextErrors[field] = "This field is required.";
+      if (!String(values[field]).trim()) {
+        nextErrors[field] = "This field is required.";
+      }
     }
+  
     if (values.email && !/^\S+@\S+\.\S+$/.test(values.email)) {
       nextErrors.email = "Enter a valid email address.";
     }
+  
     setErrors(nextErrors);
     return Object.keys(nextErrors).length === 0;
   }
